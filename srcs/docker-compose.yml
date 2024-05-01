@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  nginx:
+    build: ./requirements/nginx
+    ports:
+      - 443:443
+    volumes:
+      - data:/var/www/html
+  wordpress:
+    build: ./requirements/wordpress
+    volumes:
+      - data:/var/www/html
+    ports:
+      - 9000:9000
+
+  
+volumes:
+  data:
