@@ -1,5 +1,14 @@
 FROM  debian:bullseye
 
-RUN apt update && apt -y install mariadb-server
+RUN apt update && apt -y install mariadb-server && apt -y install mariadb-client
 
-CMD ["mysqld"]
+RUN mkdir -p /var/run/mysqld && chown -R mysql /var/run/mysqld && chmod -R 777 /var/run/mysqld && \
+    sed -i "s|bind-address            = 127.0.0.1|bind-address            = 0.0.0.0|g" /etc/mysql/mariadb.conf.d/50-server.cnf
+
+COPY    ./tools/Script.sh .
+RUN     chmod +x Script.sh
+RUN     ./Script.sh
+
+EXPOSE  3306
+
+CMD ["mariadbd"]
