@@ -8,7 +8,6 @@ RUN mkdir -p /run/php/
 
 COPY ./tools/Script.sh /tmp/Script.sh
 
-#COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/www.conf 
 
 RUN chmod +x /tmp/Script.sh
 RUN mkdir -p /run/php
