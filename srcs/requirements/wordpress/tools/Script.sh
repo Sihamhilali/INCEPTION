@@ -21,7 +21,7 @@ else
     
     sed -i "s/^listen = .*/listen = 0.0.0.0:9000/" /etc/php/7.4/fpm/pool.d/www.conf
     service php7.4-fpm stop
-    wp user create newuser $EMAIL_PRS--role=editor --user_pass=$USER_PASS --allow-root
+    wp user create $ADMINE_USER $EMAIL_PRS --role=subscriber --user_pass=$USER_PASS --allow-rootfi
 fi
 
 php-fpm7.4 -F

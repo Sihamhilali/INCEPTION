@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 
 services:
   nginx:
@@ -30,16 +30,11 @@ services:
   mariadb:
     build: 
       context: ./requirements/mariadb
-      args:
-        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-        MYSQL_DATABASE: ${MYSQL_DATABASE}
-        MYSQL_USER: ${MYSQL_USER}
-        MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     container_name: mariadb
     networks:
       - nat
     volumes:
-      - data:/var/www/html
+      - mariadb_data:/var/lib/mysql
     restart: always
     env_file:
       - .env
@@ -47,6 +42,7 @@ services:
 
 volumes:
   data:
+  mariadb_data:
 networks:
   nat:
     driver: bridge
