@@ -44,7 +44,17 @@ services:
 
 volumes:
   data:
+    driver: local
+    driver_opts:
+      type: 'none'
+      device: '/home/selhilal/data/wordpress'
+      o: 'bind'
   mariadb_data:
+    driver: local
+    driver_opts:
+      type: 'none'
+      device: '/home/selhilal/data/mariadb'
+      o: 'bind'
 networks:
   nat:
     driver: bridge
