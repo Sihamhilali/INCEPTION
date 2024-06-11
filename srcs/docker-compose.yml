@@ -30,8 +30,7 @@ services:
     depends_on:
       - mariadb
   mariadb:
-    build: 
-      context: ./requirements/mariadb
+    build: ./requirements/mariadb
     container_name: mariadb
     networks:
       - nat

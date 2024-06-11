@@ -1,9 +1,19 @@
-up: docker-compose up -d
+up: 
+	@mkdir -p /home/selhilal/data/mariadb
+	@mkdir -p /home/selhilal/data/wordpress
+	docker-compose -f ./srcs/docker-compose.yml up -d
 
-build: docker-compose build
+build: 
+	docker-compose -f ./srcs/docker-compose.yml build
 
-test: docker-compose run --rm test
+test: 
+	docker-compose -f ./srcs/docker-compose.yml run --rm test
 
-down: docker-compose down
+down: 
+	docker-compose  -f ./srcs/docker-compose.yml down
 
-.PHONY: up build test down
+clean: 
+	docker-compose -f ./srcs/docker-compose.yml down --volumes --rmi all
+	rm -rf /home/selhilal/data/mariadb
+	rm -rf /home/selhilal/data/wordpress
+

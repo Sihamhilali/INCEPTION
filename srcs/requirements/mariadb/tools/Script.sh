@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 if [ -z "$MYSQL_DATABASE" ]; then
