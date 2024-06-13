@@ -10,5 +10,5 @@ COPY ./tools/Script.sh /tmp/Script.sh
 
 
 RUN chmod +x /tmp/Script.sh
-RUN mkdir -p /run/php
+
 ENTRYPOINT [ "sh", "/tmp/Script.sh" ]

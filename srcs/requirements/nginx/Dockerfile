@@ -12,4 +12,4 @@ COPY tools/entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh 
 
-CMD ["bash", "entrypoint.sh"]
+ENTRYPOINT ["bash", "entrypoint.sh"]
